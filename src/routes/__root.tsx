@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Toddler town Annual day celebration" },
+      { name: "description", content: "Tiny Treasures Invite creates a personalized, single-screen digital invitation for pre-primary school events." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Toddler town Annual day celebration" },
+      { property: "og:description", content: "Tiny Treasures Invite creates a personalized, single-screen digital invitation for pre-primary school events." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Toddler town Annual day celebration" },
+      { name: "twitter:description", content: "Tiny Treasures Invite creates a personalized, single-screen digital invitation for pre-primary school events." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c2a14b09-9ae8-4290-bb69-0b57fa2b2a3e/id-preview-7466ef5f--5d0e9ccf-fc60-4e3b-a8aa-5a8219eb92ba.lovable.app-1778328381887.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c2a14b09-9ae8-4290-bb69-0b57fa2b2a3e/id-preview-7466ef5f--5d0e9ccf-fc60-4e3b-a8aa-5a8219eb92ba.lovable.app-1778328381887.png" },
     ],
     links: [
       {
