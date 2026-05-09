@@ -307,7 +307,7 @@ function Invitation() {
               <span className="inline-block animate-pulse">💌</span>
             </h1>
             <button
-              ref={envelopeRef as React.RefObject<HTMLButtonElement> as never}
+              ref={envelopeRef as unknown as React.RefObject<HTMLButtonElement>}
               onClick={openInvite}
               className="envelope-glow active:scale-95 transition-transform"
               aria-label="Open invitation"
