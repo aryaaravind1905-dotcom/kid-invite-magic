@@ -22,43 +22,47 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-  --color-sunshine: var(--sunshine);
-  --color-bubblegum: var(--bubblegum);
-  --color-sky: var(--sky);
-  --color-mint: var(--mint);
+  --color-gold: var(--gold);
+  --color-maroon: var(--maroon);
+  --color-cream: var(--cream);
   --font-display: var(--font-display);
   --font-body: var(--font-body);
 }
 
 :root {
-  --radius: 1.25rem;
-  --background: oklch(0.98 0.03 95);
-  --foreground: oklch(0.28 0.08 30);
-  --card: oklch(0.995 0.01 90);
-  --card-foreground: oklch(0.28 0.08 30);
-  --primary: oklch(0.68 0.2 25);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.86 0.15 90);
-  --secondary-foreground: oklch(0.28 0.08 30);
-  --accent: oklch(0.78 0.18 330);
-  --accent-foreground: oklch(0.99 0 0);
-  --muted: oklch(0.94 0.04 80);
+  --radius: 1rem;
+  /* Premium festive palette: deep maroon, gold, cream */
+  --background: oklch(0.96 0.03 85);
+  --foreground: oklch(0.25 0.07 30);
+  --card: oklch(0.985 0.015 85);
+  --card-foreground: oklch(0.22 0.06 30);
+  --primary: oklch(0.42 0.15 25);              /* deep maroon */
+  --primary-foreground: oklch(0.98 0.02 85);
+  --secondary: oklch(0.75 0.13 75);            /* warm gold */
+  --secondary-foreground: oklch(0.25 0.07 30);
+  --accent: oklch(0.62 0.18 35);               /* burnt orange */
+  --accent-foreground: oklch(0.98 0.02 85);
+  --muted: oklch(0.93 0.025 80);
   --muted-foreground: oklch(0.45 0.05 30);
-  --border: oklch(0.88 0.05 60);
+  --border: oklch(0.78 0.08 70);
 
-  --sunshine: oklch(0.88 0.18 90);
-  --bubblegum: oklch(0.78 0.2 350);
-  --sky: oklch(0.82 0.13 230);
-  --mint: oklch(0.85 0.13 160);
+  --gold: oklch(0.78 0.14 80);
+  --maroon: oklch(0.38 0.16 25);
+  --cream: oklch(0.97 0.03 85);
 
-  --font-display: "Fredoka", "Comic Sans MS", system-ui, sans-serif;
-  --font-body: "Quicksand", system-ui, sans-serif;
+  --gradient-gold: linear-gradient(135deg,
+    oklch(0.85 0.13 85),
+    oklch(0.7 0.16 70),
+    oklch(0.85 0.13 85));
+  --shadow-elegant: 0 24px 60px -20px oklch(0.3 0.1 30 / 0.35),
+                    0 8px 20px -10px oklch(0.4 0.15 30 / 0.25);
+
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
 }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
+  * { border-color: var(--color-border); }
   html, body, #root {
     height: 100%;
     overflow: hidden;
@@ -71,132 +75,160 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.01em;
+    letter-spacing: 0.005em;
+    font-weight: 600;
   }
 }
 
-/* Festive sky background */
+/* Cream backdrop with subtle warmth */
 .festive-bg {
   background:
-    radial-gradient(ellipse at 20% 10%, oklch(0.92 0.12 60 / 0.6), transparent 50%),
-    radial-gradient(ellipse at 80% 20%, oklch(0.88 0.15 330 / 0.5), transparent 50%),
-    radial-gradient(ellipse at 50% 95%, oklch(0.85 0.14 230 / 0.5), transparent 60%),
-    linear-gradient(180deg, oklch(0.96 0.05 80), oklch(0.93 0.08 50));
+    radial-gradient(ellipse at 50% 0%, oklch(0.92 0.08 70 / 0.7), transparent 60%),
+    radial-gradient(ellipse at 50% 100%, oklch(0.85 0.12 35 / 0.4), transparent 65%),
+    linear-gradient(180deg, oklch(0.97 0.03 85), oklch(0.93 0.05 70));
 }
 
-/* Card with playful soft shadow */
+/* Premium invitation card */
 .invite-card {
-  background: linear-gradient(160deg,
-    oklch(0.995 0.005 90),
-    oklch(0.97 0.05 80));
-  border: 3px solid oklch(0.86 0.15 90);
+  background:
+    linear-gradient(160deg,
+      oklch(0.99 0.01 85),
+      oklch(0.96 0.03 80));
+  border: 1px solid oklch(0.78 0.12 75 / 0.6);
+  border-radius: 18px;
   box-shadow:
-    0 20px 60px -20px oklch(0.5 0.2 25 / 0.35),
-    0 8px 20px -10px oklch(0.5 0.2 350 / 0.25),
-    inset 0 0 0 1px oklch(1 0 0 / 0.6);
-}
-
-.dashed-divider {
-  background-image: repeating-linear-gradient(90deg,
-    oklch(0.78 0.18 330) 0 8px, transparent 8px 16px);
-  height: 2px;
-  width: 100%;
-  opacity: 0.6;
-}
-
-/* Glowing envelope */
-.envelope-glow {
-  filter: drop-shadow(0 0 24px oklch(0.88 0.18 90 / 0.7))
-          drop-shadow(0 0 48px oklch(0.78 0.2 350 / 0.4));
-}
-
-/* Speech bubble */
-.bubble {
+    var(--shadow-elegant),
+    inset 0 0 0 1px oklch(1 0 0 / 0.7),
+    inset 0 0 40px oklch(0.85 0.12 75 / 0.08);
   position: relative;
-  background: white;
-  border: 3px solid oklch(0.78 0.2 350);
-  border-radius: 24px;
-  padding: 12px 16px;
-  box-shadow: 0 8px 20px -8px oklch(0.5 0.2 350 / 0.3);
 }
-.bubble::after {
+.invite-card::before {
   content: "";
   position: absolute;
-  bottom: -14px;
-  left: 28px;
-  width: 0; height: 0;
-  border: 12px solid transparent;
-  border-top-color: oklch(0.78 0.2 350);
+  inset: 6px;
+  border: 1px solid oklch(0.7 0.13 75 / 0.45);
+  border-radius: 12px;
+  pointer-events: none;
 }
-.bubble::before {
-  content: "";
+
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    oklch(0.7 0.14 75) 20%,
+    oklch(0.55 0.16 60) 50%,
+    oklch(0.7 0.14 75) 80%,
+    transparent);
+  position: relative;
+}
+.gold-divider::after {
+  content: "✦";
   position: absolute;
-  bottom: -10px;
-  left: 31px;
-  width: 0; height: 0;
-  border: 9px solid transparent;
-  border-top-color: white;
-  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: oklch(0.98 0.02 85);
+  padding: 0 10px;
+  color: oklch(0.55 0.16 60);
+  font-size: 11px;
+}
+
+/* Gold text */
+.text-gold {
+  background: linear-gradient(135deg,
+    oklch(0.6 0.16 70),
+    oklch(0.78 0.16 80),
+    oklch(0.55 0.16 60));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* Confetti pieces */
 .confetti-piece {
   position: absolute;
-  width: 10px; height: 14px;
-  border-radius: 2px;
+  width: 8px; height: 12px;
+  border-radius: 1px;
   top: -20px;
   will-change: transform;
 }
 
-/* Balloons */
-.balloon {
+/* Firework burst image */
+.firework {
   position: absolute;
-  width: 48px; height: 60px;
-  border-radius: 50% 50% 48% 48%;
-  box-shadow: inset -6px -8px 14px rgba(0,0,0,0.15),
-              inset 6px 6px 10px rgba(255,255,255,0.5);
-}
-.balloon::after {
-  content: "";
-  position: absolute;
-  bottom: -36px; left: 50%;
-  width: 1.5px; height: 36px;
-  background: oklch(0.5 0.05 30 / 0.5);
-  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 0 20px oklch(0.85 0.18 75 / 0.7));
 }
 
-/* Spark burst at corners */
+/* Spark dot */
 .spark {
   position: absolute;
-  width: 6px; height: 6px;
+  width: 4px; height: 4px;
   border-radius: 50%;
-  background: oklch(0.92 0.18 90);
-  box-shadow: 0 0 12px oklch(0.92 0.18 90);
+  background: oklch(0.9 0.16 80);
+  box-shadow: 0 0 14px oklch(0.85 0.18 80);
+  will-change: transform, opacity;
 }
 
 /* Action button */
-.btn-pop {
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-  box-shadow: 0 6px 0 -1px oklch(0.5 0.18 25 / 0.5),
-              0 10px 20px -8px oklch(0.5 0.2 25 / 0.4);
+.btn-elegant {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 6px 16px -6px oklch(0.4 0.15 30 / 0.4);
+  letter-spacing: 0.04em;
 }
-.btn-pop:active {
-  transform: translateY(3px);
-  box-shadow: 0 3px 0 -1px oklch(0.5 0.18 25 / 0.5),
-              0 6px 12px -6px oklch(0.5 0.2 25 / 0.4);
+.btn-elegant:hover { filter: brightness(1.05); transform: translateY(-1px); }
+.btn-elegant:active { transform: translateY(1px); }
+
+/* Speech bubble */
+.bubble {
+  position: relative;
+  background: oklch(0.99 0.01 85);
+  border: 1px solid oklch(0.7 0.13 75 / 0.6);
+  border-radius: 16px;
+  padding: 10px 14px;
+  box-shadow: 0 8px 20px -10px oklch(0.4 0.15 30 / 0.3);
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 24px;
+  width: 0; height: 0;
+  border: 9px solid transparent;
+  border-top-color: oklch(0.7 0.13 75 / 0.6);
+}
+.bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 26px;
+  width: 0; height: 0;
+  border: 7px solid transparent;
+  border-top-color: oklch(0.99 0.01 85);
+  z-index: 1;
+}
+
+/* Chibi face circle */
+.face-circle {
+  border: 3px solid oklch(0.7 0.14 75);
+  box-shadow: 0 0 0 2px oklch(0.99 0.01 85),
+              0 6px 14px -4px oklch(0.4 0.15 30 / 0.4);
+  background: oklch(0.9 0.04 60);
 }
 
 @font-face {
-  font-family: 'Fredoka';
+  font-family: 'Cormorant Garamond';
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/fredoka/v14/X7nP4b87HvSqjb_WIi2yDCRwoQ_k7367_B-i2yQag0-mac3O8w.woff2) format('woff2');
+  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v18/co3YmX5slCNuHLi8bLeY9MK7whWMhyjornFLsS6V7w.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Quicksand';
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o18G0wx40QDw.woff2) format('woff2');
+  src: url(https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2) format('woff2');
 }
