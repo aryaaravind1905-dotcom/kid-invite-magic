@@ -447,39 +447,53 @@ function Invitation() {
             </div>
           </div>
 
-          {/* Chibi avatar — full character image of the child */}
-          <div
-            ref={avatarRef}
-            className="relative mt-2 flex w-full items-end justify-center gap-3"
-          >
-            <div className="relative h-[170px] w-[130px] shrink-0 drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)]">
-              {faceUrl ? (
+          {personalized ? (
+            <div
+              ref={avatarRef}
+              className="relative mt-2 flex w-full items-end justify-center gap-3"
+            >
+              <div className="relative h-[170px] w-[130px] shrink-0 drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)]">
                 <img
-                  src={faceUrl}
+                  src={faceUrl || chibiBody}
                   alt={childName}
                   className="absolute inset-0 h-full w-full object-contain object-bottom"
                   referrerPolicy="no-referrer"
                 />
-              ) : (
-                <img
-                  src={chibiBody}
-                  alt="Child avatar"
-                  className="absolute inset-0 h-full w-full object-contain object-bottom"
-                />
-              )}
-            </div>
+              </div>
 
-            <div
-              ref={bubbleRef}
-              className="bubble max-w-[58%] text-[12.5px] leading-snug text-foreground"
-            >
-              <p className="font-display italic text-[oklch(0.55_0.16_60)] text-[11px] mb-0.5">
-                A note from {childName}
-              </p>
-              Dear Amma & Appa, please come — I've been
-              practicing just for you. ♥
+              <div
+                ref={bubbleRef}
+                className="bubble max-w-[58%] text-[12.5px] leading-snug text-foreground"
+              >
+                <p className="font-display italic text-[oklch(0.55_0.16_60)] text-[11px] mb-0.5">
+                  A note from {childName}
+                </p>
+                Dear Amma & Appa, please come — I've been
+                practicing just for you. ♥
+              </div>
             </div>
-          </div>
+          ) : (
+            <div
+              ref={avatarRef}
+              className="relative mt-3 flex w-full flex-col items-center"
+            >
+              <div
+                ref={bubbleRef}
+                className="bubble max-w-[88%] text-center text-[12.5px] leading-snug text-foreground"
+              >
+                <p className="font-display italic text-[oklch(0.55_0.16_60)] text-[11px] mb-0.5">
+                  A message from the little stars of TTPS
+                </p>
+                "Please come and cheer for us! We've been practicing
+                with all our hearts to make this day magical for you. ♥"
+              </div>
+              <img
+                src={kidsFooter}
+                alt="Toddlers Town kids holding hands"
+                className="mt-3 w-full max-w-sm object-contain drop-shadow-[0_6px_10px_rgba(80,30,10,0.18)]"
+              />
+            </div>
+          )}
         </div>
       )}
     </div>
