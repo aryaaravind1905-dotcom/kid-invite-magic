@@ -33,6 +33,23 @@ function getParam(name: string): string {
   return new URLSearchParams(window.location.search).get(name) ?? "";
 }
 
+// Convert common share URLs (Google Drive, Dropbox) into direct image URLs
+function normalizeImageUrl(url: string): string {
+  try {
+    // Google Drive: /file/d/<ID>/view  OR  ?id=<ID>
+    const driveFile = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+    const driveOpen = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+    const id = driveFile?.[1] || (url.includes("drive.google.com") ? driveOpen?.[1] : undefined);
+    if (id) return `https://lh3.googleusercontent.com/d/${id}=w800`;
+
+    // Dropbox: ?dl=0 -> ?raw=1
+    if (url.includes("dropbox.com")) {
+      return url.replace("?dl=0", "?raw=1").replace("&dl=0", "&raw=1");
+    }
+  } catch {}
+  return url;
+}
+
 function Invitation() {
   const [started, setStarted] = useState(false);
   const [muted, setMuted] = useState(false);
@@ -52,7 +69,7 @@ function Invitation() {
     const n = getParam("name").trim();
     const img = getParam("image").trim();
     if (n) setChildName(n);
-    if (img) setFaceUrl(img);
+    if (img) setFaceUrl(normalizeImageUrl(img));
   }, []);
 
   // Confetti pieces (premium gold/maroon palette)
