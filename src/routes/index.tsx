@@ -5,6 +5,7 @@ import chibiBody from "@/assets/chibi-body.png";
 import cardFrame from "@/assets/card-frame.png";
 import firework from "@/assets/firework.png";
 import bgImg from "@/assets/bg.jpg";
+import kidsFooter from "@/assets/kids-footer.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
