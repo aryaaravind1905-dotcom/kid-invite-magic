@@ -307,10 +307,10 @@ function Invitation() {
 
       {/* Main invitation */}
       {started && (
-        <div className="relative z-10 mx-auto flex h-full max-w-md flex-col items-center justify-center px-4 py-4">
+        <div className="relative z-10 mx-auto flex h-full max-w-md flex-col items-center justify-start sm:justify-center px-4 py-4 overflow-y-auto">
           <div
             ref={cardRef}
-            className="invite-card relative w-full px-6 py-7"
+            className="invite-card relative w-full px-5 sm:px-6 py-6 sm:py-7"
           >
             {/* Decorative gold frame overlay */}
             <img
