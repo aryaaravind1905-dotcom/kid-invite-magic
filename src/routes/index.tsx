@@ -324,7 +324,7 @@ function Invitation() {
               <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[oklch(0.55_0.16_60)]">
                 Proudly Presented By
               </p>
-              <h2 className="mt-1.5 font-display text-[1.15rem] sm:text-[1.25rem] leading-tight font-semibold text-gold">
+              <h2 className="mt-1.5 font-display text-[1.55rem] sm:text-[1.75rem] leading-tight font-bold text-gold">
                 Toddlers Town Pre-Primary School
               </h2>
               <div className="mx-auto my-2 h-px w-16 bg-[oklch(0.7_0.13_75)]/60" />
@@ -375,7 +375,7 @@ function Invitation() {
               <p className="font-display italic text-[12.5px] sm:text-[13px] leading-snug text-foreground">
                 "Every little star at TTPS shines in their own beautiful way. Join us as we celebrate their journey, their joy, and their dreams."
               </p>
-              <p className="mt-2 text-[11px] font-semibold tracking-wide text-[oklch(0.55_0.16_60)]">
+              <p className="mt-2 font-display text-[1.1rem] sm:text-[1.2rem] font-bold tracking-wide text-[oklch(0.55_0.16_60)]">
                 — Minchu Satya
               </p>
               <p className="text-[9.5px] uppercase tracking-[0.25em] text-muted-foreground">
