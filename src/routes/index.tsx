@@ -321,10 +321,17 @@ function Invitation() {
             />
 
             <div className="relative text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.4em] text-[oklch(0.55_0.16_60)]">
-                Toddlers Town Pre-Primary
+              <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[oklch(0.55_0.16_60)]">
+                Proudly Presented By
               </p>
-              <h1 className="mt-2 font-display text-[1.7rem] leading-tight font-semibold text-foreground">
+              <h2 className="mt-1.5 font-display text-[1.15rem] sm:text-[1.25rem] leading-tight font-semibold text-gold">
+                Toddlers Town Pre-Primary School
+              </h2>
+              <div className="mx-auto my-2 h-px w-16 bg-[oklch(0.7_0.13_75)]/60" />
+              <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+                Cordially Invites You To
+              </p>
+              <h1 className="mt-1 font-display text-[1.7rem] leading-tight font-semibold text-foreground">
                 Annual Day
               </h1>
               <p className="font-display text-sm italic text-muted-foreground -mt-0.5">
