@@ -398,7 +398,7 @@ function Invitation() {
                   Programme
                 </p>
                 <div className="flex flex-wrap justify-center gap-1.5">
-                  {["Dance", "Fancy Dress", "Music"].map((t) => (
+                  {["Dance", "Fancy Dress", "Music", "Cultural Activity", "Honouring", "Prize Distribution", "Book Inauguration"].map((t) => (
                     <span
                       key={t}
                       className="rounded-full border border-[oklch(0.7_0.13_75)] bg-white/70 px-3 py-1 text-xs font-medium text-foreground"
