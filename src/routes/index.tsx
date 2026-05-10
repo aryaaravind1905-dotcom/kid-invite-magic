@@ -317,12 +317,12 @@ function Invitation() {
             A special celebration awaits. Tap below to open your invitation.
           </p>
           {personalized ? (
-            <div className="flex items-end justify-center gap-2 sm:gap-3">
+            <div className="flex flex-col items-center justify-center gap-2 sm:gap-3">
               <img
                 src={faceUrl || chibiBody}
                 alt={childName}
                 referrerPolicy="no-referrer"
-                className="h-40 sm:h-48 w-auto object-contain object-bottom drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)] animate-[fade-in_0.6s_ease-out]"
+                className="h-40 sm:h-48 w-40 sm:w-48 rounded-xl aspect-square object-cover object-top [mask-image:radial-gradient(circle,black_60%,transparent_100%)] drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)] animate-[fade-in_0.6s_ease-out]"
               />
               <button
                 onClick={begin}
@@ -386,7 +386,7 @@ function Invitation() {
             <div className="gold-divider my-4" />
 
             <div ref={linesRef} className="space-y-3 text-sm">
-              <Row label="Date" value="Saturday, 17 May" />
+              <Row label="Date" value="Sunday, 17 May" />
               <Row label="Time" value="4:30 PM onwards" />
               <Row
                 label="Venue"
@@ -439,7 +439,7 @@ function Invitation() {
                 View Location
               </a>
               <a
-                href="tel:+910000000000"
+                href="tel:+916360583553"
                 className="btn-elegant rounded-full border border-primary bg-transparent py-2.5 text-center text-xs font-semibold uppercase tracking-widest text-primary"
               >
                 Contact School
@@ -450,20 +450,20 @@ function Invitation() {
           {personalized ? (
             <div
               ref={avatarRef}
-              className="relative mt-2 flex w-full items-end justify-center gap-3"
+              className="relative mt-2 flex w-full flex-col items-center justify-center gap-3"
             >
-              <div className="relative h-[170px] w-[130px] shrink-0 drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)]">
+              <div className="relative h-40 sm:h-48 w-40 sm:w-48 shrink-0 drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)]">
                 <img
                   src={faceUrl || chibiBody}
                   alt={childName}
-                  className="absolute inset-0 h-full w-full object-contain object-bottom"
+                  className="absolute inset-0 h-full w-full rounded-xl object-cover object-top [mask-image:radial-gradient(circle,black_60%,transparent_100%)]"
                   referrerPolicy="no-referrer"
                 />
               </div>
 
               <div
                 ref={bubbleRef}
-                className="bubble max-w-[58%] text-[12.5px] leading-snug text-foreground"
+                className="bubble max-w-[88%] text-center text-[12.5px] leading-snug text-foreground"
               >
                 <p className="font-display italic text-[oklch(0.55_0.16_60)] text-[11px] mb-0.5">
                   A note from {childName}
