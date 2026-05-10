@@ -339,6 +339,13 @@ function Invitation() {
               Open Invitation
             </button>
           )}
+          {!personalized && (
+            <img
+              src={kidsFooter}
+              alt="Toddlers Town kids holding hands"
+              className="pointer-events-none absolute bottom-0 left-0 right-0 mx-auto w-full max-w-md object-contain drop-shadow-[0_-4px_12px_rgba(80,30,10,0.18)] animate-[fade-in_0.8s_ease-out]"
+            />
+          )}
         </div>
       )}
 
