@@ -368,6 +368,23 @@ function Invitation() {
 
             <div className="gold-divider my-4" />
 
+            <div className="text-center px-1">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground mb-1.5">
+                Director's Message
+              </p>
+              <p className="font-display italic text-[12.5px] sm:text-[13px] leading-snug text-foreground">
+                "Every little star at TTPS shines in their own beautiful way. Join us as we celebrate their journey, their joy, and their dreams."
+              </p>
+              <p className="mt-2 text-[11px] font-semibold tracking-wide text-[oklch(0.55_0.16_60)]">
+                — Minchu Satya
+              </p>
+              <p className="text-[9.5px] uppercase tracking-[0.25em] text-muted-foreground">
+                Director, TTPS
+              </p>
+            </div>
+
+            <div className="gold-divider my-4" />
+
             <div className="relative grid grid-cols-2 gap-2.5">
               <a
                 href={MAPS_URL}
