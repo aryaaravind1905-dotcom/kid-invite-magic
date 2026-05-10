@@ -403,41 +403,26 @@ function Invitation() {
             </div>
           </div>
 
-          {/* Chibi avatar with face overlay */}
+          {/* Chibi avatar — full character image of the child */}
           <div
             ref={avatarRef}
             className="relative mt-2 flex w-full items-end justify-center gap-3"
           >
-            <div className="relative h-[160px] w-[110px] shrink-0">
-              <img
-                src={chibiBody}
-                alt="Child avatar"
-                className="absolute inset-0 h-full w-full object-contain object-bottom"
-              />
-              {/* Face circle positioned over the neck/collar */}
-              <div
-                className="face-circle absolute overflow-hidden rounded-full"
-                style={{
-                  width: 56,
-                  height: 56,
-                  left: "50%",
-                  top: 6,
-                  transform: "translateX(-50%)",
-                }}
-              >
-                {faceUrl ? (
-                  <img
-                    src={faceUrl}
-                    alt={childName}
-                    className="h-full w-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                ) : (
-                  <div className="grid h-full w-full place-items-center text-2xl">
-                    🙂
-                  </div>
-                )}
-              </div>
+            <div className="relative h-[170px] w-[130px] shrink-0 drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)]">
+              {faceUrl ? (
+                <img
+                  src={faceUrl}
+                  alt={childName}
+                  className="absolute inset-0 h-full w-full object-contain object-bottom"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                <img
+                  src={chibiBody}
+                  alt="Child avatar"
+                  className="absolute inset-0 h-full w-full object-contain object-bottom"
+                />
+              )}
             </div>
 
             <div
