@@ -56,6 +56,7 @@ function Invitation() {
   const [muted, setMuted] = useState(false);
   const [childName, setChildName] = useState("your little one");
   const [faceUrl, setFaceUrl] = useState("");
+  const [personalized, setPersonalized] = useState(false);
 
   const stageRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
