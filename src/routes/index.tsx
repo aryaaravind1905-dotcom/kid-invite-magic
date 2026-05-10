@@ -310,15 +310,23 @@ function Invitation() {
           <h1 className="font-display text-4xl md:text-5xl font-semibold text-gold mb-2">
             You're Cordially Invited
           </h1>
-          <p className="text-sm text-muted-foreground mb-8 max-w-xs">
+          <p className="text-sm text-muted-foreground mb-6 max-w-xs">
             A special celebration awaits. Tap below to open your invitation.
           </p>
-          <button
-            onClick={begin}
-            className="btn-elegant rounded-full bg-primary px-8 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground"
-          >
-            Open Invitation
-          </button>
+          <div className="flex items-end justify-center gap-2 sm:gap-3">
+            <img
+              src={faceUrl || chibiBody}
+              alt={childName}
+              referrerPolicy="no-referrer"
+              className="h-40 sm:h-48 w-auto object-contain object-bottom -scale-x-100 drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)] animate-[fade-in_0.6s_ease-out]"
+            />
+            <button
+              onClick={begin}
+              className="btn-elegant rounded-full bg-primary px-6 sm:px-8 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground mb-4"
+            >
+              Open Invitation
+            </button>
+          </div>
         </div>
       )}
 
@@ -371,7 +379,7 @@ function Invitation() {
                   Programme
                 </p>
                 <div className="flex flex-wrap justify-center gap-1.5">
-                  {["Dance", "Fancy Dress", "Music", "Fun Games"].map((t) => (
+                  {["Dance", "Fancy Dress", "Music"].map((t) => (
                     <span
                       key={t}
                       className="rounded-full border border-[oklch(0.7_0.13_75)] bg-white/70 px-3 py-1 text-xs font-medium text-foreground"
