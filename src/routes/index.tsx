@@ -5,6 +5,7 @@ import chibiBody from "@/assets/chibi-body.png";
 import cardFrame from "@/assets/card-frame.png";
 import firework from "@/assets/firework.png";
 import bgImg from "@/assets/bg.jpg";
+import kidsFooter from "@/assets/kids-footer.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -55,6 +56,7 @@ function Invitation() {
   const [muted, setMuted] = useState(false);
   const [childName, setChildName] = useState("your little one");
   const [faceUrl, setFaceUrl] = useState("");
+  const [personalized, setPersonalized] = useState(false);
 
   const stageRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -70,6 +72,7 @@ function Invitation() {
     const img = getParam("image").trim();
     if (n) setChildName(n);
     if (img) setFaceUrl(normalizeImageUrl(img));
+    setPersonalized(Boolean(n || img));
   }, []);
 
   // Confetti pieces (premium gold/maroon palette)
@@ -313,20 +316,36 @@ function Invitation() {
           <p className="text-sm text-muted-foreground mb-6 max-w-xs">
             A special celebration awaits. Tap below to open your invitation.
           </p>
-          <div className="flex items-end justify-center gap-2 sm:gap-3">
-            <img
-              src={faceUrl || chibiBody}
-              alt={childName}
-              referrerPolicy="no-referrer"
-              className="h-40 sm:h-48 w-auto object-contain object-bottom -scale-x-100 drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)] animate-[fade-in_0.6s_ease-out]"
-            />
+          {personalized ? (
+            <div className="flex items-end justify-center gap-2 sm:gap-3">
+              <img
+                src={faceUrl || chibiBody}
+                alt={childName}
+                referrerPolicy="no-referrer"
+                className="h-40 sm:h-48 w-auto object-contain object-bottom drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)] animate-[fade-in_0.6s_ease-out]"
+              />
+              <button
+                onClick={begin}
+                className="btn-elegant rounded-full bg-primary px-6 sm:px-8 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground mb-4"
+              >
+                Open Invitation
+              </button>
+            </div>
+          ) : (
             <button
               onClick={begin}
-              className="btn-elegant rounded-full bg-primary px-6 sm:px-8 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground mb-4"
+              className="btn-elegant rounded-full bg-primary px-8 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground"
             >
               Open Invitation
             </button>
-          </div>
+          )}
+          {!personalized && (
+            <img
+              src={kidsFooter}
+              alt="Toddlers Town kids holding hands"
+              className="pointer-events-none absolute bottom-0 left-0 right-0 mx-auto w-full max-w-md object-contain drop-shadow-[0_-4px_12px_rgba(80,30,10,0.18)] animate-[fade-in_0.8s_ease-out]"
+            />
+          )}
         </div>
       )}
 
@@ -379,7 +398,7 @@ function Invitation() {
                   Programme
                 </p>
                 <div className="flex flex-wrap justify-center gap-1.5">
-                  {["Dance", "Fancy Dress", "Music"].map((t) => (
+                  {["Dance", "Fancy Dress", "Music", "Cultural Activity", "Honouring", "Prize Distribution", "Book Inauguration"].map((t) => (
                     <span
                       key={t}
                       className="rounded-full border border-[oklch(0.7_0.13_75)] bg-white/70 px-3 py-1 text-xs font-medium text-foreground"
@@ -428,39 +447,53 @@ function Invitation() {
             </div>
           </div>
 
-          {/* Chibi avatar — full character image of the child */}
-          <div
-            ref={avatarRef}
-            className="relative mt-2 flex w-full items-end justify-center gap-3"
-          >
-            <div className="relative h-[170px] w-[130px] shrink-0 drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)]">
-              {faceUrl ? (
+          {personalized ? (
+            <div
+              ref={avatarRef}
+              className="relative mt-2 flex w-full items-end justify-center gap-3"
+            >
+              <div className="relative h-[170px] w-[130px] shrink-0 drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)]">
                 <img
-                  src={faceUrl}
+                  src={faceUrl || chibiBody}
                   alt={childName}
                   className="absolute inset-0 h-full w-full object-contain object-bottom"
                   referrerPolicy="no-referrer"
                 />
-              ) : (
-                <img
-                  src={chibiBody}
-                  alt="Child avatar"
-                  className="absolute inset-0 h-full w-full object-contain object-bottom"
-                />
-              )}
-            </div>
+              </div>
 
-            <div
-              ref={bubbleRef}
-              className="bubble max-w-[58%] text-[12.5px] leading-snug text-foreground"
-            >
-              <p className="font-display italic text-[oklch(0.55_0.16_60)] text-[11px] mb-0.5">
-                A note from {childName}
-              </p>
-              Dear Amma & Appa, please come — I've been
-              practicing just for you. ♥
+              <div
+                ref={bubbleRef}
+                className="bubble max-w-[58%] text-[12.5px] leading-snug text-foreground"
+              >
+                <p className="font-display italic text-[oklch(0.55_0.16_60)] text-[11px] mb-0.5">
+                  A note from {childName}
+                </p>
+                Dear Amma & Appa, please come — I've been
+                practicing just for you. ♥
+              </div>
             </div>
-          </div>
+          ) : (
+            <div
+              ref={avatarRef}
+              className="relative mt-3 flex w-full flex-col items-center"
+            >
+              <div
+                ref={bubbleRef}
+                className="bubble max-w-[88%] text-center text-[12.5px] leading-snug text-foreground"
+              >
+                <p className="font-display italic text-[oklch(0.55_0.16_60)] text-[11px] mb-0.5">
+                  A message from the little stars of TTPS
+                </p>
+                "Please come and cheer for us! We've been practicing
+                with all our hearts to make this day magical for you. ♥"
+              </div>
+              <img
+                src={kidsFooter}
+                alt="Toddlers Town kids holding hands"
+                className="mt-3 w-full max-w-sm object-contain drop-shadow-[0_6px_10px_rgba(80,30,10,0.18)]"
+              />
+            </div>
+          )}
         </div>
       )}
     </div>
