@@ -316,20 +316,29 @@ function Invitation() {
           <p className="text-sm text-muted-foreground mb-6 max-w-xs">
             A special celebration awaits. Tap below to open your invitation.
           </p>
-          <div className="flex items-end justify-center gap-2 sm:gap-3">
-            <img
-              src={faceUrl || chibiBody}
-              alt={childName}
-              referrerPolicy="no-referrer"
-              className="h-40 sm:h-48 w-auto object-contain object-bottom -scale-x-100 drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)] animate-[fade-in_0.6s_ease-out]"
-            />
+          {personalized ? (
+            <div className="flex items-end justify-center gap-2 sm:gap-3">
+              <img
+                src={faceUrl || chibiBody}
+                alt={childName}
+                referrerPolicy="no-referrer"
+                className="h-40 sm:h-48 w-auto object-contain object-bottom drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)] animate-[fade-in_0.6s_ease-out]"
+              />
+              <button
+                onClick={begin}
+                className="btn-elegant rounded-full bg-primary px-6 sm:px-8 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground mb-4"
+              >
+                Open Invitation
+              </button>
+            </div>
+          ) : (
             <button
               onClick={begin}
-              className="btn-elegant rounded-full bg-primary px-6 sm:px-8 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground mb-4"
+              className="btn-elegant rounded-full bg-primary px-8 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground"
             >
               Open Invitation
             </button>
-          </div>
+          )}
         </div>
       )}
 
