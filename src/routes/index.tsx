@@ -72,6 +72,7 @@ function Invitation() {
     const img = getParam("image").trim();
     if (n) setChildName(n);
     if (img) setFaceUrl(normalizeImageUrl(img));
+    setPersonalized(Boolean(n || img));
   }, []);
 
   // Confetti pieces (premium gold/maroon palette)
