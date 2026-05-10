@@ -13,10 +13,12 @@ export default defineConfig({
     server: { 
       entry: "server",
     },
+    adapter: "node"
   },
   vite: {
     server: {
-      allowedHosts: ["vicarious-then-mari.ngrok-free.dev"],
+      allowedHosts: ["vicarious-then-mari.ngrok-free.dev","kid-invite-magic-updated.onrender.com"],
     },
+    
   },
 });
