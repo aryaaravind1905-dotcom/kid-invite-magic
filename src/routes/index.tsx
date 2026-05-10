@@ -307,10 +307,10 @@ function Invitation() {
 
       {/* Main invitation */}
       {started && (
-        <div className="relative z-10 mx-auto flex h-full max-w-md flex-col items-center justify-center px-4 py-4">
+        <div className="relative z-10 mx-auto flex h-full max-w-md flex-col items-center justify-start sm:justify-center px-4 py-4 overflow-y-auto">
           <div
             ref={cardRef}
-            className="invite-card relative w-full px-6 py-7"
+            className="invite-card relative w-full px-5 sm:px-6 py-6 sm:py-7"
           >
             {/* Decorative gold frame overlay */}
             <img
@@ -321,10 +321,17 @@ function Invitation() {
             />
 
             <div className="relative text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.4em] text-[oklch(0.55_0.16_60)]">
-                Toddlers Town Pre-Primary
+              <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[oklch(0.55_0.16_60)]">
+                Proudly Presented By
               </p>
-              <h1 className="mt-2 font-display text-[1.7rem] leading-tight font-semibold text-foreground">
+              <h2 className="mt-1.5 font-display text-[1.15rem] sm:text-[1.25rem] leading-tight font-semibold text-gold">
+                Toddlers Town Pre-Primary School
+              </h2>
+              <div className="mx-auto my-2 h-px w-16 bg-[oklch(0.7_0.13_75)]/60" />
+              <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+                Cordially Invites You To
+              </p>
+              <h1 className="mt-1 font-display text-[1.7rem] leading-tight font-semibold text-foreground">
                 Annual Day
               </h1>
               <p className="font-display text-sm italic text-muted-foreground -mt-0.5">
@@ -357,6 +364,23 @@ function Invitation() {
                   ))}
                 </div>
               </div>
+            </div>
+
+            <div className="gold-divider my-4" />
+
+            <div className="text-center px-1">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground mb-1.5">
+                Director's Message
+              </p>
+              <p className="font-display italic text-[12.5px] sm:text-[13px] leading-snug text-foreground">
+                "Every little star at TTPS shines in their own beautiful way. Join us as we celebrate their journey, their joy, and their dreams."
+              </p>
+              <p className="mt-2 text-[11px] font-semibold tracking-wide text-[oklch(0.55_0.16_60)]">
+                — Minchu Satya
+              </p>
+              <p className="text-[9.5px] uppercase tracking-[0.25em] text-muted-foreground">
+                Director, TTPS
+              </p>
             </div>
 
             <div className="gold-divider my-4" />
