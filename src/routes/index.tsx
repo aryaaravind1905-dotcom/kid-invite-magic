@@ -177,6 +177,15 @@ function Invitation() {
       bgMusic.current.volume = 0.35;
       bgMusic.current.play().catch(() => {});
     }
+    if (ambientMusic.current) {
+      ambientMusic.current.volume = 0.18;
+      ambientMusic.current.play().catch(() => {});
+    }
+  };
+
+  const duckAmbient = (to: number, duration = 0.6) => {
+    if (!ambientMusic.current) return;
+    gsap.to(ambientMusic.current, { volume: to, duration, ease: "sine.inOut" });
   };
 
   // Main animation timeline once started
