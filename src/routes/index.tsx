@@ -458,14 +458,18 @@ function Invitation() {
               ref={avatarRef}
               className="relative mt-2 flex w-full flex-col items-center justify-center gap-3"
             >
-              <div className="relative h-40 sm:h-48 w-40 sm:w-48 shrink-0 drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)]">
-                <img
-                  src={faceUrl || chibiBody}
-                  alt={childName}
-                  className="absolute inset-0 h-full w-full rounded-xl object-cover object-top [mask-image:radial-gradient(circle,black_60%,transparent_100%)]"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
+              <img
+                src={faceUrl || chibiBody}
+                alt={childName}
+                referrerPolicy="no-referrer"
+                style={{
+                  WebkitMaskImage:
+                    "radial-gradient(ellipse at center, black 55%, rgba(0,0,0,0.6) 75%, transparent 100%)",
+                  maskImage:
+                    "radial-gradient(ellipse at center, black 55%, rgba(0,0,0,0.6) 75%, transparent 100%)",
+                }}
+                className="h-44 sm:h-52 w-44 sm:w-52 object-contain object-center drop-shadow-[0_8px_14px_rgba(80,30,10,0.3)]"
+              />
 
               <div
                 ref={bubbleRef}
