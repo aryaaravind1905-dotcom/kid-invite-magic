@@ -133,6 +133,40 @@ function Invitation() {
     playPop();
   };
 
+  // Cracker rocket: launches from bottom, leaves a trail, bursts at top
+  const launchRocket = (xPct: number) => {
+    if (!fireworksLayer.current) return;
+    const layer = fireworksLayer.current;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const startX = w * xPct;
+    const targetY = h * (0.15 + Math.random() * 0.15);
+
+    const rocket = document.createElement("span");
+    rocket.style.cssText = `position:absolute;left:${startX}px;top:${h - 20}px;width:6px;height:18px;border-radius:3px;background:linear-gradient(to top, oklch(0.78 0.14 80), oklch(0.55 0.18 30));box-shadow:0 0 12px oklch(0.78 0.14 80);transform:translate(-50%,0);will-change:transform,top;`;
+    layer.appendChild(rocket);
+
+    // Trail sparks
+    const trailInterval = window.setInterval(() => {
+      const r = rocket.getBoundingClientRect();
+      const s = document.createElement("span");
+      s.style.cssText = `position:absolute;left:${r.left + r.width / 2}px;top:${r.top + r.height}px;width:4px;height:4px;border-radius:50%;background:oklch(0.88 0.12 80);box-shadow:0 0 8px oklch(0.78 0.14 80);transform:translate(-50%,-50%);pointer-events:none;`;
+      layer.appendChild(s);
+      gsap.to(s, { opacity: 0, scale: 0.2, duration: 0.6, ease: "power1.out", onComplete: () => s.remove() });
+    }, 40);
+
+    gsap.to(rocket, {
+      top: targetY,
+      duration: 0.9,
+      ease: "power2.out",
+      onComplete: () => {
+        clearInterval(trailInterval);
+        rocket.remove();
+        launchFirework(startX, targetY);
+      },
+    });
+  };
+
   const begin = () => {
     if (started) return;
     setStarted(true);
@@ -293,16 +327,6 @@ function Invitation() {
           <span key={i} className="spark" style={s as React.CSSProperties} />
         ))}
 
-      {/* Mute toggle */}
-      {started && (
-        <button
-          onClick={toggleMute}
-          aria-label="Toggle music"
-          className="absolute top-4 right-4 z-30 grid h-10 w-10 place-items-center rounded-full bg-white/90 text-base backdrop-blur shadow-md ring-1 ring-[oklch(0.7_0.13_75)] active:scale-95"
-        >
-          {muted ? "🔇" : "🎵"}
-        </button>
-      )}
 
       {/* Welcome / start gate */}
       {!started && (
