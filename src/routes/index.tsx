@@ -322,13 +322,7 @@ function Invitation() {
                 src={faceUrl || chibiBody}
                 alt={childName}
                 referrerPolicy="no-referrer"
-                style={{
-                  WebkitMaskImage:
-                    "radial-gradient(ellipse 80% 80% at center, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)",
-                  maskImage:
-                    "radial-gradient(ellipse 80% 80% at center, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)",
-                }}
-                className="h-44 sm:h-52 w-44 sm:w-52 rounded-[2rem] object-contain object-center drop-shadow-[0_8px_14px_rgba(80,30,10,0.3)] animate-[fade-in_0.6s_ease-out]"
+                className="h-40 sm:h-48 w-40 sm:w-48 rounded-xl aspect-square object-cover object-top [mask-image:radial-gradient(circle,black_60%,transparent_100%)] drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)] animate-[fade-in_0.6s_ease-out]"
               />
               <button
                 onClick={begin}
@@ -462,13 +456,7 @@ function Invitation() {
                 src={faceUrl || chibiBody}
                 alt={childName}
                 referrerPolicy="no-referrer"
-                style={{
-                  WebkitMaskImage:
-                    "radial-gradient(ellipse 80% 80% at center, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)",
-                  maskImage:
-                    "radial-gradient(ellipse 80% 80% at center, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)",
-                }}
-                className="h-44 sm:h-52 w-44 sm:w-52 rounded-[2rem] object-contain object-center drop-shadow-[0_8px_14px_rgba(80,30,10,0.3)]"
+                className="h-40 sm:h-48 w-40 sm:w-48 rounded-xl aspect-square object-cover object-top [mask-image:radial-gradient(circle,black_60%,transparent_100%)] drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)] animate-[fade-in_0.6s_ease-out]"
               />
 
               <div
