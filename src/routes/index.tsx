@@ -226,6 +226,7 @@ function Invitation() {
           { opacity: 0, scale: 1.1, duration: 0.8, ease: "power2.out" },
           "-=0.7"
         )
+        .call(() => duckAmbient(0.05, 0.4), [], "<")
         .from(
           linesRef.current?.children ?? [],
           { y: 14, opacity: 0, duration: 0.45, stagger: 0.1, ease: "power2.out" },
@@ -240,7 +241,8 @@ function Invitation() {
           bubbleRef.current,
           { scale: 0, opacity: 0, duration: 0.4, ease: "back.out(2)" },
           "-=0.2"
-        );
+        )
+        .call(() => duckAmbient(0.18, 0.8));
 
       // Avatar gentle bobbing
       gsap.to(avatarRef.current, {
