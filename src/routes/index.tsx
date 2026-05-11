@@ -26,6 +26,8 @@ const MAPS_URL =
 
 const CELEBRATION_SOUND =
   "https://cdn.pixabay.com/download/audio/2022/10/14/audio_3eef5d7cab.mp3?filename=cinematic-fireworks-celebration-7748.mp3";
+const AMBIENT_SOUND =
+  "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=relaxing-mountains-rivers-streams-running-water-18178.mp3";
 const POP_SOUND =
   "https://cdn.pixabay.com/download/audio/2022/03/10/audio_a04c94bb27.mp3?filename=firework-explosion-6288.mp3";
 
@@ -65,6 +67,7 @@ function Invitation() {
   const linesRef = useRef<HTMLDivElement>(null);
   const fireworksLayer = useRef<HTMLDivElement>(null);
   const bgMusic = useRef<HTMLAudioElement | null>(null);
+  const ambientMusic = useRef<HTMLAudioElement | null>(null);
   const popAudio = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -174,6 +177,15 @@ function Invitation() {
       bgMusic.current.volume = 0.35;
       bgMusic.current.play().catch(() => {});
     }
+    if (ambientMusic.current) {
+      ambientMusic.current.volume = 0.18;
+      ambientMusic.current.play().catch(() => {});
+    }
+  };
+
+  const duckAmbient = (to: number, duration = 0.6) => {
+    if (!ambientMusic.current) return;
+    gsap.to(ambientMusic.current, { volume: to, duration, ease: "sine.inOut" });
   };
 
   // Main animation timeline once started
@@ -214,6 +226,7 @@ function Invitation() {
           { opacity: 0, scale: 1.1, duration: 0.8, ease: "power2.out" },
           "-=0.7"
         )
+        .call(() => duckAmbient(0.05, 0.4), [], "<")
         .from(
           linesRef.current?.children ?? [],
           { y: 14, opacity: 0, duration: 0.45, stagger: 0.1, ease: "power2.out" },
@@ -228,7 +241,8 @@ function Invitation() {
           bubbleRef.current,
           { scale: 0, opacity: 0, duration: 0.4, ease: "back.out(2)" },
           "-=0.2"
-        );
+        )
+        .call(() => duckAmbient(0.18, 0.8));
 
       // Avatar gentle bobbing
       gsap.to(avatarRef.current, {
@@ -288,6 +302,7 @@ function Invitation() {
       }}
     >
       <audio ref={bgMusic} src={CELEBRATION_SOUND} loop preload="auto" />
+      <audio ref={ambientMusic} src={AMBIENT_SOUND} loop preload="auto" />
       <audio ref={popAudio} src={POP_SOUND} preload="auto" />
 
       {/* Fireworks layer */}
