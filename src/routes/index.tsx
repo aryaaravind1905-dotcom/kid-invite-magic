@@ -324,11 +324,11 @@ function Invitation() {
                 referrerPolicy="no-referrer"
                 style={{
                   WebkitMaskImage:
-                    "radial-gradient(ellipse at center, black 55%, rgba(0,0,0,0.6) 75%, transparent 100%)",
+                    "radial-gradient(ellipse 80% 80% at center, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)",
                   maskImage:
-                    "radial-gradient(ellipse at center, black 55%, rgba(0,0,0,0.6) 75%, transparent 100%)",
+                    "radial-gradient(ellipse 80% 80% at center, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)",
                 }}
-                className="h-44 sm:h-52 w-44 sm:w-52 object-contain object-center drop-shadow-[0_8px_14px_rgba(80,30,10,0.3)] animate-[fade-in_0.6s_ease-out]"
+                className="h-44 sm:h-52 w-44 sm:w-52 rounded-[2rem] object-contain object-center drop-shadow-[0_8px_14px_rgba(80,30,10,0.3)] animate-[fade-in_0.6s_ease-out]"
               />
               <button
                 onClick={begin}
@@ -464,11 +464,11 @@ function Invitation() {
                 referrerPolicy="no-referrer"
                 style={{
                   WebkitMaskImage:
-                    "radial-gradient(ellipse at center, black 55%, rgba(0,0,0,0.6) 75%, transparent 100%)",
+                    "radial-gradient(ellipse 80% 80% at center, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)",
                   maskImage:
-                    "radial-gradient(ellipse at center, black 55%, rgba(0,0,0,0.6) 75%, transparent 100%)",
+                    "radial-gradient(ellipse 80% 80% at center, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)",
                 }}
-                className="h-44 sm:h-52 w-44 sm:w-52 object-contain object-center drop-shadow-[0_8px_14px_rgba(80,30,10,0.3)]"
+                className="h-44 sm:h-52 w-44 sm:w-52 rounded-[2rem] object-contain object-center drop-shadow-[0_8px_14px_rgba(80,30,10,0.3)]"
               />
 
               <div
