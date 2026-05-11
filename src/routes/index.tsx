@@ -276,11 +276,6 @@ function Invitation() {
     return () => ctx.revert();
   }, [started]);
 
-  const toggleMute = () => {
-    const next = !muted;
-    setMuted(next);
-    if (bgMusic.current) bgMusic.current.muted = next;
-  };
 
   return (
     <div
