@@ -255,6 +255,13 @@ function Invitation() {
         .call(() => burstAt(0.25, 0.7), [], "+=0.5")
         .call(() => burstAt(0.78, 0.72), [], "+=0.4");
 
+      // Cracker rockets launching from bottom periodically
+      const rocketTl = gsap.timeline({ delay: 1.2, repeat: -1, repeatDelay: 1.8 });
+      rocketTl
+        .call(() => launchRocket(0.15 + Math.random() * 0.15))
+        .call(() => launchRocket(0.7 + Math.random() * 0.15), [], "+=0.6")
+        .call(() => launchRocket(0.4 + Math.random() * 0.2), [], "+=0.7");
+
       // Tiny sparks twinkle
       gsap.to(".spark", {
         scale: 1.6,
@@ -485,13 +492,17 @@ function Invitation() {
 
               <div
                 ref={bubbleRef}
-                className="bubble max-w-[88%] text-center text-[12.5px] leading-snug text-foreground"
+                className="bubble max-w-[92%] text-center text-sm sm:text-base leading-relaxed text-foreground"
               >
-                <p className="font-display italic text-[oklch(0.55_0.16_60)] text-[11px] mb-0.5">
-                  A note from {childName}
+                <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground mb-1">
+                  A note from
                 </p>
-                Dear Amma & Appa, please come — I've been
-                practicing just for you. ♥
+                <p className="font-display text-2xl sm:text-3xl font-bold text-[oklch(0.55_0.16_60)] mb-2">
+                  {childName}
+                </p>
+                <p className="font-display italic">
+                  "Dear Amma &amp; Appa, please come — I've been practicing just for you. ♥"
+                </p>
               </div>
             </div>
           ) : (
