@@ -302,6 +302,7 @@ function Invitation() {
       }}
     >
       <audio ref={bgMusic} src={CELEBRATION_SOUND} loop preload="auto" />
+      <audio ref={ambientMusic} src={AMBIENT_SOUND} loop preload="auto" />
       <audio ref={popAudio} src={POP_SOUND} preload="auto" />
 
       {/* Fireworks layer */}
