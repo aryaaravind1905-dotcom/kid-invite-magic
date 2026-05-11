@@ -26,6 +26,8 @@ const MAPS_URL =
 
 const CELEBRATION_SOUND =
   "https://cdn.pixabay.com/download/audio/2022/10/14/audio_3eef5d7cab.mp3?filename=cinematic-fireworks-celebration-7748.mp3";
+const AMBIENT_SOUND =
+  "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=relaxing-mountains-rivers-streams-running-water-18178.mp3";
 const POP_SOUND =
   "https://cdn.pixabay.com/download/audio/2022/03/10/audio_a04c94bb27.mp3?filename=firework-explosion-6288.mp3";
 
