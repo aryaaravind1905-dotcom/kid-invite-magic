@@ -317,12 +317,18 @@ function Invitation() {
             A special celebration awaits. Tap below to open your invitation.
           </p>
           {personalized ? (
-            <div className="flex flex-col items-center justify-center gap-2 sm:gap-3">
+            <div className="flex flex-col items-center justify-center gap-3 sm:gap-4">
               <img
                 src={faceUrl || chibiBody}
                 alt={childName}
                 referrerPolicy="no-referrer"
-                className="h-40 sm:h-48 w-40 sm:w-48 rounded-xl aspect-square object-cover object-top [mask-image:radial-gradient(circle,black_60%,transparent_100%)] drop-shadow-[0_6px_10px_rgba(80,30,10,0.25)] animate-[fade-in_0.6s_ease-out]"
+                style={{
+                  WebkitMaskImage:
+                    "radial-gradient(ellipse at center, black 55%, rgba(0,0,0,0.6) 75%, transparent 100%)",
+                  maskImage:
+                    "radial-gradient(ellipse at center, black 55%, rgba(0,0,0,0.6) 75%, transparent 100%)",
+                }}
+                className="h-44 sm:h-52 w-44 sm:w-52 object-contain object-center drop-shadow-[0_8px_14px_rgba(80,30,10,0.3)] animate-[fade-in_0.6s_ease-out]"
               />
               <button
                 onClick={begin}
