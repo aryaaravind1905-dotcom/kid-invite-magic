@@ -53,7 +53,7 @@ function normalizeImageUrl(url: string): string {
 
 function Invitation() {
   const [started, setStarted] = useState(false);
-  const [muted, setMuted] = useState(false);
+  
   const [childName, setChildName] = useState("your little one");
   const [faceUrl, setFaceUrl] = useState("");
   const [personalized, setPersonalized] = useState(false);
@@ -96,7 +96,7 @@ function Invitation() {
   );
 
   const playPop = () => {
-    if (!popAudio.current || muted) return;
+    if (!popAudio.current) return;
     try {
       const a = popAudio.current.cloneNode(true) as HTMLAudioElement;
       a.volume = 0.4;
