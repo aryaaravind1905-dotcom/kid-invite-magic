@@ -67,6 +67,7 @@ function Invitation() {
   const linesRef = useRef<HTMLDivElement>(null);
   const fireworksLayer = useRef<HTMLDivElement>(null);
   const bgMusic = useRef<HTMLAudioElement | null>(null);
+  const ambientMusic = useRef<HTMLAudioElement | null>(null);
   const popAudio = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
